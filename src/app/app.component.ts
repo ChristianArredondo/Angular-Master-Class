@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MdToolbar, MdList } from '@angular/material';
-import { Contact } from './models/contact'; 
+import { Contact } from './models/contact';
+import { CONTACT_DATA } from './data/contact-data';
 
 @Component({
   selector: 'trm-contacts-app',
@@ -9,6 +10,8 @@ import { Contact } from './models/contact';
 })
 export class ContactsAppComponent {
   title = 'Angular Master Class setup works!';
+
+  contacts: Contact[] = CONTACT_DATA;
 
   contact: Contact = {
     id: 6,
@@ -24,6 +27,11 @@ export class ContactsAppComponent {
       city: 'Rush',
       country: 'United States'
     }
+  }
+
+  trackById(id, item) {
+    console.log(item.id)
+    return item ? item.id : 0;
   }
 
 }
