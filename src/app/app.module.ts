@@ -1,18 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { MaterialModule } from '@angular/material';
+import { MdToolbarModule, MdListModule, } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ContactsAppComponent } from './app.component';
+import { ContactsHeaderComponent } from './contacts-header';
 
 @NgModule({
-  declarations: [ContactsAppComponent],
+  declarations: [
+    ContactsAppComponent,
+    ContactsHeaderComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MdListModule,
+    MdToolbarModule
   ],
   bootstrap: [ContactsAppComponent]
 })
