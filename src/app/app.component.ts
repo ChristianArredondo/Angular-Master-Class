@@ -1,17 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { MdToolbar, MdList } from '@angular/material';
 import { Contact } from './models/contact';
-import { CONTACT_DATA } from './data/contact-data';
+import { ContactsService } from './contacts.service';
 
+@Injectable()
 @Component({
   selector: 'trm-contacts-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class ContactsAppComponent {
+export class ContactsAppComponent implements OnInit {
   title = 'Angular Master Class setup works!';
+  contacts: Contact[];
 
-  contacts: Contact[] = CONTACT_DATA;
+  constructor(private contactsService: ContactsService) {
+  }
+  
+  ngOnInit() {
+    this.contacts = this.contactsService.contacts;
+  }
 
   contact: Contact = {
     id: 6,

@@ -6,6 +6,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ContactsAppComponent } from './app.component';
 import { ContactsHeaderComponent } from './contacts-header';
+import { ContactsService } from './contacts.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,10 @@ import { ContactsHeaderComponent } from './contacts-header';
     BrowserAnimationsModule,
     FlexLayoutModule,
     MdListModule,
-    MdToolbarModule
+    MdToolbarModule,
+  ],
+  providers: [
+    ContactsService
   ],
   bootstrap: [ContactsAppComponent]
 })
