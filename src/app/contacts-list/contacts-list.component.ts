@@ -3,6 +3,9 @@ import { Contact } from '../models/contact';
 import { ContactsService } from '../contacts.service';
 import { Observable } from 'rxjs/Observable';
 import { MdInputContainer, MdIcon } from '@angular/material';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 @Component({
@@ -12,18 +15,25 @@ import { MdInputContainer, MdIcon } from '@angular/material';
 })
 export class ContactsListComponent implements OnInit {
   contacts$: Observable<Array<Contact>>;
+  private terms$ = new  Subject<string>();
   
   constructor (
     private contactsService: ContactsService
   ) {
     this.contacts$ = contactsService.getContacts();
     contactsService.getContacts();
+    
   }
 
-  ngOnInit () {}
-
-  search (val) {
-    this.contacts$ = this.contactsService.search(val);
+  ngOnInit () {
+    this.terms$
+      .debounceTime(400)
+      .distinctUntilChanged()
+      .subscribe(term => this.contacts$ = this.contactsService.search(term));
   }
+
+  // search (val) {
+  //   this.contacts$ = this.contactsService.search(val);
+  // }
 
 }
