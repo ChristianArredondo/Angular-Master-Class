@@ -1,7 +1,7 @@
 <div class="trm-contacts-detail">
   <md-card>
     <md-card-title-group class="fullBleed">
-      <img md-card-md-image [src]="contact?.image">
+      <img md-card-md-image [src]="contact?.image || ''">
       <md-card-title>{{ contact?.name }}</md-card-title>
       <md-card-subtitle>{{ contact?.email }}</md-card-subtitle>
     </md-card-title-group>
@@ -22,11 +22,16 @@
       </dl>
     </md-card-content>
     <md-card-actions fxLayout fxLayoutAlign="center center">
-        <button
-          routerLink="/"
-          md-raised-button
-          title="Go back to list"
-          color="primary">Go back</button>
+      <button
+        routerLink="edit"
+        md-raised-button
+        title="Go back to list"
+        color="primary">Edit</button>
+      <button
+        routerLink="/"
+        md-raised-button
+        title="Go back to list"
+        color="primary">Go back</button>
     </md-card-actions>
   </md-card>
 </div> 

@@ -31,5 +31,13 @@ export class ContactsService {
     return this.http.get<ContactResponse>(url)
       .map(data => data.item);
   }
+
+  updateContact(contact: Contact)  {
+    let url = 'http://localhost:4201/api/contacts/' + contact.id;
+    return this.http.put<ContactResponse>(url, contact)
+      .map(data => data.item);
+  }
   
 }
+
+

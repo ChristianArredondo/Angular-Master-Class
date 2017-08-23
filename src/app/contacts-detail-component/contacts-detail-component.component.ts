@@ -4,7 +4,6 @@ import { Route, ActivatedRoute } from '@angular/router';
 import { ContactsService } from '../contacts.service';
 import { MdButton, MdCard } from '@angular/material';
 import { Observable } from 'rxjs';
-import { AsyncPipe } from '@angular/common';
 @Injectable()
 @Component({
   selector: 'trm-contacts-detail-component',

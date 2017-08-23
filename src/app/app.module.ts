@@ -2,18 +2,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { MdButtonModule, MdToolbarModule, MdListModule, MdCardModule } from '@angular/material';
+import { 
+  MdButtonModule, 
+  MdToolbarModule, 
+  MdListModule, 
+  MdCardModule,
+  MdInputModule
+} from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ContactsAppComponent } from './app.component';
 import { ContactsHeaderComponent } from './contacts-header';
 import { ContactsService } from './contacts.service';
 import { ContactsListComponent } from './contacts-list/contacts-list.component';
-
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule} from '@angular/router';
 import { APP_ROUTES} from './app.routes';
 import { ContactsDetailComponentComponent } from './contacts-detail-component/contacts-detail-component.component';
+import { ContactsEditorComponent } from './contacts-editor/contacts-editor.component';
 
 
 @NgModule({
@@ -21,7 +28,8 @@ import { ContactsDetailComponentComponent } from './contacts-detail-component/co
     ContactsAppComponent,
     ContactsHeaderComponent,
     ContactsListComponent,
-    ContactsDetailComponentComponent
+    ContactsDetailComponentComponent,
+    ContactsEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +40,9 @@ import { ContactsDetailComponentComponent } from './contacts-detail-component/co
     MdButtonModule,
     MdCardModule,
     MdListModule,
+    MdInputModule,
     MdToolbarModule,
+    FormsModule,
     RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [
