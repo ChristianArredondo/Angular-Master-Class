@@ -1,8 +1,12 @@
-<md-list>
+<md-list *ngIf="contacts$ | async; else loading">
     <a 
       md-list-item [routerLink]="['/contact', contact.id]"
-      *ngFor="let contact of contacts; trackBy: trackById">
+      *ngFor="let contact of contacts$ | async">
       <img md-list-avatar [src]="contact.image" alt="Picture of {{ contact.name }}">
       <h3 md-line>{{ contact.name }}</h3>
     </a>
 </md-list>
+
+<ng-template #loading>
+  Loading...
+</ng-template>
