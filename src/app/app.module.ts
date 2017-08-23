@@ -7,7 +7,8 @@ import {
   MdToolbarModule, 
   MdListModule, 
   MdCardModule,
-  MdInputModule
+  MdInputModule,
+  MdIconModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -41,6 +42,7 @@ import { ContactsEditorComponent } from './contacts-editor/contacts-editor.compo
     MdCardModule,
     MdListModule,
     MdInputModule,
+    MdIconModule,
     MdToolbarModule,
     FormsModule,
     RouterModule.forRoot(APP_ROUTES)

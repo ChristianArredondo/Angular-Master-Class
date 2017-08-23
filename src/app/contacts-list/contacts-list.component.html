@@ -1,3 +1,9 @@
+<md-toolbar>
+  <md-input-container dividerColor="primary" class="trm-search-container" floatPlaceholder="never">
+    <input placeholder="Search" mdInput type="text" (input)="search($event.target.value)">
+  </md-input-container>
+  <md-icon color="primary">search</md-icon>
+</md-toolbar>
 <md-list *ngIf="contacts$ | async; else loading">
     <a 
       md-list-item [routerLink]="['/contact', contact.id]"
