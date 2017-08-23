@@ -50,6 +50,12 @@ export class ContactsService {
       .map(data => data.items);
   }
 
+  search2 (term: string) {
+    let url = `http://localhost:4201/api/search?text=${term}`;
+    return this.http.get<ContactsResponse>(url)
+      .map(data => data.items);
+  }
+
   rawSearch (term: string) {
     let url = `http://localhost:4201/api/search?text=${term}`;
     return this.http.get<ContactsResponse>(url)

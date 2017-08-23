@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit, Injectable, Input, EventEmitter, Output } from '@angular/core';
 import { Contact } from '../models/contact';
 import { Route, ActivatedRoute } from '@angular/router';
 import { ContactsService } from '../contacts.service';
@@ -11,7 +11,9 @@ import { Observable } from 'rxjs';
   styleUrls: ['./contacts-detail-component.component.css']
 })
 export class ContactsDetailComponentComponent implements OnInit {
-  public contact: Contact;
+  @Input() contact: Contact;
+  @Output() edit = new EventEmitter<void>();
+  @Output() back = new EventEmitter<void>();
 
   constructor(
     private route: ActivatedRoute,

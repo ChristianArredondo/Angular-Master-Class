@@ -22,6 +22,7 @@ import { RouterModule} from '@angular/router';
 import { APP_ROUTES} from './app.routes';
 import { ContactsDetailComponentComponent } from './contacts-detail-component/contacts-detail-component.component';
 import { ContactsEditorComponent } from './contacts-editor/contacts-editor.component';
+import { ContactsDetailsViewComponent } from './contacts-details-view/contacts-details-view.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { ContactsEditorComponent } from './contacts-editor/contacts-editor.compo
     ContactsHeaderComponent,
     ContactsListComponent,
     ContactsDetailComponentComponent,
-    ContactsEditorComponent
+    ContactsEditorComponent,
+    ContactsDetailsViewComponent
   ],
   imports: [
     BrowserModule,

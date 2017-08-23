@@ -23,12 +23,12 @@
     </md-card-content>
     <md-card-actions fxLayout fxLayoutAlign="center center">
       <button
-        routerLink="edit"
+        (click)="edit.emit(contact)"
         md-raised-button
         title="Go back to list"
         color="primary">Edit</button>
       <button
-        routerLink="/"
+        (click)="back.emit()"
         md-raised-button
         title="Go back to list"
         color="primary">Go back</button>
