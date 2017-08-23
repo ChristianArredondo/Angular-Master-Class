@@ -41,7 +41,7 @@ export class ContactsService {
   search (term: string) {
     let url = `http://localhost:4201/api/search?text=${term}`;
     return this.http.get<ContactsResponse>(url)
-    .map(data => data.items);
+      .map(data => data.items);
   }
   
 }

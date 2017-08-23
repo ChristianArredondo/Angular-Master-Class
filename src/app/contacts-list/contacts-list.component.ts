@@ -5,6 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import { MdInputContainer, MdIcon } from '@angular/material';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/merge';
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()
@@ -19,21 +21,14 @@ export class ContactsListComponent implements OnInit {
   
   constructor (
     private contactsService: ContactsService
-  ) {
-    this.contacts$ = contactsService.getContacts();
-    contactsService.getContacts();
-    
-  }
+  ) { }
 
   ngOnInit () {
-    this.terms$
-      .debounceTime(400)
+    this.contacts$ = this.terms$
+      .debounceTime(200)
       .distinctUntilChanged()
-      .subscribe(term => this.contacts$ = this.contactsService.search(term));
+      .switchMap(term => this.contactsService.search(term))
+      .merge(this.contactsService.getContacts());
   }
-
-  // search (val) {
-  //   this.contacts$ = this.contactsService.search(val);
-  // }
 
 }
