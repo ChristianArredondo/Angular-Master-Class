@@ -23,9 +23,9 @@ export class ContactsDetailsViewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.params
-      .switchMap(params => {
-        let id = params['id'];
+    this.route.paramMap
+      .switchMap(paramMap => {
+        let id = paramMap.get('id');
         return this.contactsService.getContact(id)})
       .subscribe(contact => {
         this.contact = contact
