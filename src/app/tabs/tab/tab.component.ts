@@ -10,12 +10,9 @@ export class TabComponent implements OnInit {
   @Input() selected: boolean;
   @Input() title: string;
 
-  constructor(
-    private parent: TabsComponent
-  ) { }
+  constructor( ) { }
 
   ngOnInit() {
-    this.parent.addTab(this);
   }
 
 }
