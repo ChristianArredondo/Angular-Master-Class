@@ -23,12 +23,13 @@ export class ContactsDetailsViewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.params.switchMap(params => {
-      let id = params['id'];
-      return this.contactsService.getContact(id)
-    }).subscribe(contact => {
-      this.contact = contact
-      this.eventBus.emit('appTitleChange', this.contact.name);
+    this.route.params
+      .switchMap(params => {
+        let id = params['id'];
+        return this.contactsService.getContact(id)})
+      .subscribe(contact => {
+        this.contact = contact
+        this.eventBus.emit('appTitleChange', this.contact.name)
     });
   }
 

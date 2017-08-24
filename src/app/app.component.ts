@@ -9,7 +9,15 @@ import { Observable } from "rxjs/Observable";
 @Component({
   selector: 'trm-contacts-app',
   template: `
-    <md-toolbar color="primary">{{title | async}}</md-toolbar>
+  <md-toolbar color="primary">
+  <div fxLayout fxLayoutAlign="space-between center" fxFlex>
+    {{title | async}}
+    <a md-button title="Go to about page" class="right" 
+       routerLink="/about">
+      About
+    </a>
+  </div>
+  </md-toolbar>
     <router-outlet></router-outlet>
   `,
   styleUrls: ['./app.component.scss']

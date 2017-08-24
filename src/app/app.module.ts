@@ -28,7 +28,8 @@ import { ContactsDetailsViewComponent } from './contacts-details-view/contacts-d
 import { TabsComponent } from './tabs/tabs/tabs.component';
 import { TabComponent } from './tabs/tab/tab.component';
 import { EventBusService } from './event-bus-service.service';
-import { ContactsDashboardComponent } from './contacts-dashboard/contacts-dashboard.component'
+import { ContactsDashboardComponent } from './contacts-dashboard/contacts-dashboard.component';
+import { AboutComponent } from './about/about.component'
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { ContactsDashboardComponent } from './contacts-dashboard/contacts-dashbo
     ContactsDetailsViewComponent,
     TabsComponent,
     TabComponent,
-    ContactsDashboardComponent
+    ContactsDashboardComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

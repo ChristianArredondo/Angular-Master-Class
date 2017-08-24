@@ -4,6 +4,7 @@ import { ContactsDetailComponentComponent } from './contacts-detail-component/co
 import { ContactsEditorComponent } from './contacts-editor/contacts-editor.component';
 import { ContactsDetailsViewComponent } from './contacts-details-view/contacts-details-view.component';
 import { ContactsDashboardComponent } from './contacts-dashboard/contacts-dashboard.component';
+import { AboutComponent } from "app/about/about.component";
 
 export const APP_ROUTES = [
   {
@@ -14,5 +15,6 @@ export const APP_ROUTES = [
       { path: 'contact/:id', component: ContactsDetailsViewComponent },
       { path: 'contact/:id/edit', component: ContactsEditorComponent }
     ]
-  }
+  },
+  { path: 'about', component: AboutComponent },
 ]
