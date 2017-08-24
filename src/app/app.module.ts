@@ -29,7 +29,7 @@ import { TabsComponent } from './tabs/tabs/tabs.component';
 import { TabComponent } from './tabs/tab/tab.component';
 import { EventBusService } from './event-bus-service.service';
 import { ContactsDashboardComponent } from './contacts-dashboard/contacts-dashboard.component';
-import { AboutComponent } from './about/about.component'
+
 
 
 @NgModule({
@@ -43,7 +43,6 @@ import { AboutComponent } from './about/about.component'
     TabsComponent,
     TabComponent,
     ContactsDashboardComponent,
-    AboutComponent
   ],
   imports: [
     BrowserModule,

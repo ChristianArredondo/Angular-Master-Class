@@ -16,5 +16,8 @@ export const APP_ROUTES = [
       { path: 'contact/:id/edit', component: ContactsEditorComponent }
     ]
   },
-  { path: 'about', component: AboutComponent },
+  {
+    path: 'about',
+    loadChildren: './about/about.module#AboutModule'
+  }
 ]
