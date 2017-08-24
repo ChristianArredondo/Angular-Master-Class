@@ -8,7 +8,8 @@ import {
   MdListModule, 
   MdCardModule,
   MdInputModule,
-  MdIconModule
+  MdIconModule,
+  MdTabsModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -23,6 +24,8 @@ import { APP_ROUTES} from './app.routes';
 import { ContactsDetailComponentComponent } from './contacts-detail-component/contacts-detail-component.component';
 import { ContactsEditorComponent } from './contacts-editor/contacts-editor.component';
 import { ContactsDetailsViewComponent } from './contacts-details-view/contacts-details-view.component';
+import { TabsComponent } from './tabs/tabs/tabs.component';
+import { TabComponent } from './tabs/tab/tab.component';
 
 
 @NgModule({
@@ -32,7 +35,9 @@ import { ContactsDetailsViewComponent } from './contacts-details-view/contacts-d
     ContactsListComponent,
     ContactsDetailComponentComponent,
     ContactsEditorComponent,
-    ContactsDetailsViewComponent
+    ContactsDetailsViewComponent,
+    TabsComponent,
+    TabComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +50,7 @@ import { ContactsDetailsViewComponent } from './contacts-details-view/contacts-d
     MdListModule,
     MdInputModule,
     MdIconModule,
+    MdTabsModule,
     MdToolbarModule,
     FormsModule,
     RouterModule.forRoot(APP_ROUTES)
