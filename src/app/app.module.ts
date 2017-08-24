@@ -20,7 +20,7 @@ import { ContactsService } from './contacts.service';
 import { ContactsListComponent } from './contacts-list/contacts-list.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule} from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 import { APP_ROUTES} from './app.routes';
 import { ContactsDetailComponentComponent } from './contacts-detail-component/contacts-detail-component.component';
 import { ContactsEditorComponent } from './contacts-editor/contacts-editor.component';
@@ -59,7 +59,9 @@ import { ContactsDashboardComponent } from './contacts-dashboard/contacts-dashbo
     MdTabsModule,
     MdToolbarModule,
     FormsModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES, {
+      preloadingStrategy: PreloadAllModules
+    })
   ],
   providers: [
     ContactsService,
