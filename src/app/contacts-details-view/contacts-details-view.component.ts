@@ -1,8 +1,10 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, Injectable } from '@angular/core';
 import { Contact } from '../models/contact';
 import { Route, Router, ActivatedRoute } from '@angular/router';
 import { ContactsService } from '../contacts.service';
+import { EventBusService } from '../event-bus-service.service';
 
+@Injectable()
 @Component({
   selector: 'trm-contacts-details-view',
   templateUrl: './contacts-details-view.component.html',
@@ -10,14 +12,15 @@ import { ContactsService } from '../contacts.service';
 })
 export class ContactsDetailsViewComponent implements OnInit {
   @Output() back = new EventEmitter();
-
+  title: string;
   contact: Contact;
   id: string;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private contactsService: ContactsService
+    private contactsService: ContactsService,
+    private eventBus: EventBusService
   ) { }
 
   ngOnInit() {
@@ -25,8 +28,10 @@ export class ContactsDetailsViewComponent implements OnInit {
     this.contactsService.getContact(this.id)
       .subscribe(contact => {
         this.contact = contact
-        console.log(this.contact);
+        this.eventBus.emit('appTitleChange', this.contact.name);
       });
+      
+    
   }
 
   navigateToEditor () {

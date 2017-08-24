@@ -1,15 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { MdToolbar, MdList } from '@angular/material';
 import { Contact } from './models/contact';
 import { ContactsService } from './contacts.service';
+import { EventBusService } from './event-bus-service.service';
+import { Observable } from "rxjs/Observable";
 
+@Injectable()
 @Component({
   selector: 'trm-contacts-app',
-  templateUrl: './app.component.html',
+  template: `
+    <md-toolbar color="primary">{{title | async}}</md-toolbar>
+    <router-outlet></router-outlet>
+  `,
   styleUrls: ['./app.component.scss']
 })
-export class ContactsAppComponent {
-  title = 'Angular Master Class setup works!';
+export class ContactsAppComponent implements OnInit {
+  title: Observable<string>;
+  constructor(private eventBus: EventBusService) { }
+
+  ngOnInit () {
+    this.title = this.eventBus.observe('appTitleChange');
+  }
 
   contact: Contact = {
     id: 6,

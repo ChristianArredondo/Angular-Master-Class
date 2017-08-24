@@ -5,6 +5,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ContactsService } from '../contacts.service';
 import { Observable } from 'rxjs';
 import { FormsModule } from '@angular/forms';
+import { EventBusService } from '../event-bus-service.service';
+
 
 @Injectable()
 @Component({
@@ -18,13 +20,16 @@ export class ContactsEditorComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private contactsService: ContactsService) { }
+    private contactsService: ContactsService,
+    private eventBus: EventBusService
+  ) { }
 
   ngOnInit() {
     let id = this.route.snapshot.paramMap.get('id');
     this.contactsService.getContact(id)
       .subscribe(contact => {
         this.contact = contact
+        this.eventBus.emit('appTitleChange', `Editing: ${this.contact.name}`);
       });
   }
 

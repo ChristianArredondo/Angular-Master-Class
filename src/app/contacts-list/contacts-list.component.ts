@@ -8,6 +8,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/merge';
 import { Subject } from 'rxjs/Subject';
+import { EventBusService } from '../event-bus-service.service';
 
 @Injectable()
 @Component({
@@ -20,7 +21,8 @@ export class ContactsListComponent implements OnInit {
   private terms$ = new  Subject<string>();
   
   constructor (
-    private contactsService: ContactsService
+    private contactsService: ContactsService,
+    private eventBus: EventBusService
   ) { }
 
   ngOnInit () {
@@ -29,6 +31,7 @@ export class ContactsListComponent implements OnInit {
       .distinctUntilChanged()
       .switchMap(term => this.contactsService.search(term))
       .merge(this.contactsService.getContacts());
+      this.eventBus.emit('appTitleChange', 'Contacts');
   }
 
 }

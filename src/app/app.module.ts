@@ -26,6 +26,7 @@ import { ContactsEditorComponent } from './contacts-editor/contacts-editor.compo
 import { ContactsDetailsViewComponent } from './contacts-details-view/contacts-details-view.component';
 import { TabsComponent } from './tabs/tabs/tabs.component';
 import { TabComponent } from './tabs/tab/tab.component';
+import { EventBusService } from './event-bus-service.service'
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { TabComponent } from './tabs/tab/tab.component';
     RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [
-    ContactsService
+    ContactsService,
+    EventBusService
   ],
   bootstrap: [ContactsAppComponent]
 })
