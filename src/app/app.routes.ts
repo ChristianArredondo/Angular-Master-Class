@@ -3,10 +3,16 @@ import { ContactsListComponent } from './contacts-list/contacts-list.component';
 import { ContactsDetailComponentComponent } from './contacts-detail-component/contacts-detail-component.component';
 import { ContactsEditorComponent } from './contacts-editor/contacts-editor.component';
 import { ContactsDetailsViewComponent } from './contacts-details-view/contacts-details-view.component';
+import { ContactsDashboardComponent } from './contacts-dashboard/contacts-dashboard.component';
 
 export const APP_ROUTES = [
-  { path: '', component: ContactsListComponent},
-  { path: 'contact/:id', component: ContactsDetailsViewComponent },
-  { path: 'contact/:id/edit', component: ContactsEditorComponent },
-  { path: '**', redirectTo: '', }
+  {
+    path: '',
+    component: ContactsDashboardComponent,
+    children: [
+      { path: '', redirectTo: 'contact/0', pathMatch: 'full' },
+      { path: 'contact/:id', component: ContactsDetailsViewComponent },
+      { path: 'contact/:id/edit', component: ContactsEditorComponent }
+    ]
+  }
 ]

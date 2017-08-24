@@ -38,9 +38,8 @@ export class ContactsAppComponent implements OnInit {
     }
   }
 
-  trackById(id, item) {
-    console.log(item.id)
-    return item ? item.id : 0;
-  }
+  // trackById(id, item) {
+  //   return item ? item.id : 0;
+  // }
 
 }

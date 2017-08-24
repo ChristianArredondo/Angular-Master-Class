@@ -9,6 +9,7 @@ import {
   MdCardModule,
   MdInputModule,
   MdIconModule,
+  MdSidenavModule,
   MdTabsModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -26,7 +27,8 @@ import { ContactsEditorComponent } from './contacts-editor/contacts-editor.compo
 import { ContactsDetailsViewComponent } from './contacts-details-view/contacts-details-view.component';
 import { TabsComponent } from './tabs/tabs/tabs.component';
 import { TabComponent } from './tabs/tab/tab.component';
-import { EventBusService } from './event-bus-service.service'
+import { EventBusService } from './event-bus-service.service';
+import { ContactsDashboardComponent } from './contacts-dashboard/contacts-dashboard.component'
 
 
 @NgModule({
@@ -38,7 +40,8 @@ import { EventBusService } from './event-bus-service.service'
     ContactsEditorComponent,
     ContactsDetailsViewComponent,
     TabsComponent,
-    TabComponent
+    TabComponent,
+    ContactsDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +54,7 @@ import { EventBusService } from './event-bus-service.service'
     MdListModule,
     MdInputModule,
     MdIconModule,
+    MdSidenavModule,
     MdTabsModule,
     MdToolbarModule,
     FormsModule,

@@ -14,7 +14,6 @@ export class ContactsDetailsViewComponent implements OnInit {
   @Output() back = new EventEmitter();
   title: string;
   contact: Contact;
-  id: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,22 +23,21 @@ export class ContactsDetailsViewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.id = this.route.snapshot.paramMap.get('id');
-    this.contactsService.getContact(this.id)
-      .subscribe(contact => {
-        this.contact = contact
-        this.eventBus.emit('appTitleChange', this.contact.name);
-      });
-      
-    
+    this.route.params.switchMap(params => {
+      let id = params['id'];
+      return this.contactsService.getContact(id)
+    }).subscribe(contact => {
+      this.contact = contact
+      this.eventBus.emit('appTitleChange', this.contact.name);
+    });
   }
 
   navigateToEditor () {
-    this.router.navigate([`/contact/${this.id}/edit`]);
+    this.router.navigate([`edit`], {relativeTo: this.route});
   }
 
-  navigateToList () {
-    this.router.navigate(['/']);
-  }
+  // navigateToList () {
+  //   this.router.navigate(['/']);
+  // }
 
 }

@@ -24,7 +24,6 @@ export class ContactsDetailComponentComponent implements OnInit {
     this.contactsService.getContact(id)
       .subscribe(contact => {
         this.contact = contact
-        console.log(this.contact);
       });
   }
 
